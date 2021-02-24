@@ -14,6 +14,7 @@ export const Home = () => {
 
   window.onscroll = () => {
     if (
+      !isFetching &&
       window.location.href.slice(0, -1) === window.location.origin &&
       window.innerHeight + window.scrollY >= document.body.offsetHeight
     ) {
