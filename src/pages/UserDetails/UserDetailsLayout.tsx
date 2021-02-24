@@ -60,10 +60,12 @@ const LoaderBackground = styled.div`
 export const UserDetailsLayout = ({ isFetching }: UserDetailsLayoutProps) => (
   <UserDetailsLayoutContainer>
     <Toolbar navigationLinks={navigationLinks} />
-    <UserDetailsContainer>
-      <ProfileCard />
-      <HistoryCard />
-    </UserDetailsContainer>
+    {!isFetching && (
+      <UserDetailsContainer>
+        <ProfileCard />
+        <HistoryCard />
+      </UserDetailsContainer>
+    )}
     <ClipLoader
       color={colors.secondaryText}
       loading={isFetching}

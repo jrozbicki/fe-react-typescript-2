@@ -69,11 +69,13 @@ const LoaderBackground = styled.div`
 export const HomeLayout = ({ usersList, isFetching }: HomeLayoutProps) => (
   <HomeLayoutContainer>
     <Toolbar />
-    <UserList>
-      {usersList.map((userDetails, index) => (
-        <UserCard key={index} user={userDetails} />
-      ))}
-    </UserList>
+    {usersList.length > 1 && (
+      <UserList>
+        {usersList.map((userDetails, index) => (
+          <UserCard key={index} user={userDetails} />
+        ))}
+      </UserList>
+    )}
     <ClipLoader
       color={colors.secondaryText}
       loading={isFetching}
